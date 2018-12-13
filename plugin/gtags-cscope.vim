@@ -283,7 +283,8 @@ endfunction
 " Auto update of tag files using incremental update facility.
 "
 function! s:GtagsCscopeAutoUpdate()
-    let l:result = system(s:global_command . " -u --single-update=\"" . expand("%") . "\"")
+    "let l:result = system(s:global_command . " -u --single-update=\"" . expand("%") . "\"")
+	call job_start(s:global_command . " -u --single-update \"" . expand("%") . "\"", {})
 endfunction
 
 if g:GtagsCscope_Auto_Load == 1
